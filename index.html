@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.getElementById('CalcularCo2').addEventListener('click', function() {
+    // Obter os valores dos inputs
+    var tipoVeiculo = document.getElementById('tipoveiculo').value;
+    var kmPorDia = document.getElementById('kmPorDia').value;
+
+    // Fatores de emissão de CO2 por km para cada tipo de veículo
+    var fatoresEmissao = {
+        motos: 0.09,  // 0.09 kg CO2 por km
+        carros: 0.21, // 0.21 kg CO2 por km
+        caminhoes: 0.55 // 0.55 kg CO2 por km
+    };
+
+    // Calcular a emissão de CO2
+    var emissaoCO2 = kmPorDia * fatoresEmissao[tipoVeiculo];
+
+    // Atualizar o texto do elemento <span id="valorCO2">
+    document.getElementById('valorCO2').textContent = emissaoCO2. toFixed(2);
+    });
+    </script>
+    <title>Mobilidade Urbana</title>
+</head>
+<body class="fadeIn">
+    <header>
+        <p>MOBILIDADE URBANA</p>
+    </header>
+    <main>
+        <div class="container">
+            <div class="lista1">
+                <h2>
+                    Problemas encontrados:
+                </h2>
+                <ul>
+                    <li>teste</li>
+                </ul>
+            </div>
+            <div class="lista2">
+                <h2>
+                    Possíveis soluções:
+                </h2>
+                <ul>
+                    <li>teste</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container2">
+            <div class="tituloAside">
+                <h2>
+                    CALCULE SUA PEGADA ECOLÓGICA
+                </h2>
+            </div>
+            <div class="asideCalculo">
+                <aside>
+                    <div class="input">
+                        <label for="tipoVeiculo">Tipo do veículo:</label>
+                        <select name="tipoVeiculo" id="tipoveiculo">
+                            <option value="motos">Moto</option>
+                            <option value="carros">Carro</option>
+                            <option value="caminhoes">Caminhão</option>
+                        </select>
+                    </div>
+                    <div class="input">
+                        <label for="kmPorDia">Km rodados por dia</label>
+                        <input type="number" id="kmPorDia">
+                    </div>
+                    <div class="resultado" id="resultadoCO2">
+                        Resultado: <span id="valorCO2">-</span> kg CO2 por dia.
+                    </div>
+                    <button id="CalcularCo2">Calcular</button>
+                </aside>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <h3>
+            Créditos:
+        </h3>
+        <p>
+            Allan Slomski de Araujo, Eduardo Cauã Alves Barbosa, Victor Matheus Schneider, Yasmin Tarnovski Faccin.
+        </p>
+    </footer>
+</body>
+</html>
