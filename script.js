@@ -5,16 +5,16 @@ const btn = document.getElementById("CalcularCo2");
 
 btn.addEventListener('click', calcular);
     function calcular() {
-        var co2emitido = 0;
+        let co2emitido = 0;
         switch (tipoVeiculo.value){
             case 'motos':
-                co2emitido = kmPorDia * 0.6;
+                co2emitido = kmPorDia.value * 0.6;
                 break;
             case 'carros': 
-                co2emitido = kmPorDia * 0.9;
+                co2emitido = kmPorDia.value * 0.096;
                 break;
             case 'caminhoes':
-                co2emitido = kmPorDia * 1.3;
+                co2emitido = kmPorDia.value * 1.3;
                 break;
             default:
                 co2emitido = 0;
