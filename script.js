@@ -1,20 +1,24 @@
-var  valorCO2 = document.querySelector("#valorCO2");
+const tipoVeiculo = document.getElementById("tipoVeiculo");
+const kmPorDia = document.getElementById("kmPorDia");
+const valorCO2 = document.getElementById("valorCO2");
+const btn = document.getElementById("CalcularCo2");
 
-document.getElementById('CalcularCo2').addEventListener('click', function() {
-    // Obter os valores dos inputs
-    var tipoVeiculo = document.getElementById('tipoveiculo').value;
-    var kmPorDia = document.getElementById('kmPorDia').value;
-
-    // Fatores de emissão de CO2 por km para cada tipo de veículo
-    var fatoresEmissao = {
-        motos: 0.09,  // 0.09 kg CO2 por km
-        carros: 0.21, // 0.21 kg CO2 por km
-        caminhoes: 0.55 // 0.55 kg CO2 por km
-    };
-
-    // Calcular a emissão de CO2
-    var emissaoCO2 = kmPorDia * fatoresEmissao[tipoVeiculo];
-
-    // Atualizar o texto do elemento <span id="valorCO2">
-    document.getElementById('valorCO2').textContent = emissaoCO2.toFixed(2);
-});
+btn.addEventListener('click', calcular);
+    function calcular() {
+        let co2emitido = 0;
+        switch (tipoVeiculo.value){
+            case 'motos':
+                co2emitido = kmPorDia.value * 0.07;
+                break;
+            case 'carros': 
+                co2emitido = kmPorDia.value * 0.096;
+                break;
+            case 'caminhoes':
+                co2emitido = kmPorDia.value * 1.3;
+                break;
+            default:
+                co2emitido = 0;
+                break;
+        }
+        valorCO2.innerText = co2emitido.toFixed(2);
+    }
